@@ -129,6 +129,14 @@ table {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.table-title {
+  text-align: left;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
 table,
 table th,
 table td {
@@ -192,4 +200,10 @@ tbody tr {
 tbody tr.selected {
   background-color: #d3e6ff;
   transition: background-color 0.3s;
+}
+
+table td {
+  padding-left: 5px;
+  padding-right: 5px;
+  white-space: nowrap; 
 }
