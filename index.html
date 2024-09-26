@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Chemical Supplies</title>
+</head>
+<body>
+  <div class="container">
+    <h3 class="table-title">Chemical supplies</h3>
+    <div class="toolbar text-right">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button>
+      <button class="btn btn-secondary rounded-circle btn-icon"><i class="bi bi-arrow-up">&#8593;</i></button>
+      <button class="btn btn-secondary rounded-circle btn-icon"><i class="bi bi-arrow-down">&#8595;</i></button>
+      <button class="btn btn-warning rounded-circle btn-icon"><i class="bi bi-arrow-left-right">&#8646;</i></button>
+      <button class="btn btn-success rounded-circle btn-icon"><i class="bi bi-save">&#128190;</i></button>
+      <button class="btn btn-danger rounded-circle btn-icon"><i class="bi bi-trash">&#128465;</i></button>
+    </div>
+
+    <!-- Modal for Adding New Row -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Add Row</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="addRowForm">
+              <div class="mb-3">
+                <label for="ChemicalName" class="form-label">Chemical Name</label>
+                <input type="text" class="form-control" id="ChemicalName" required>
+              </div>
+              <div class="mb-3">
+                <label for="Vendor" class="form-label">Vendor</label>
+                <input type="text" class="form-control" id="Vendor" required>
+              </div>
+              <div class="mb-3">
+                <label for="Density" class="form-label">Density (g/m³)</label>
+                <input type="number" class="form-control" id="Density" required>
+              </div>
+              <div class="mb-3">
+                <label for="Viscosity" class="form-label">Viscosity (m²/s)</label>
+                <input type="number" class="form-control" id="Viscosity" required>
+              </div>
+              <div class="mb-3">
+                <label for="Packaging" class="form-label">Packaging</label>
+                <input type="text" class="form-control" id="Packaging" required>
+              </div>
+              <div class="mb-3">
+                <label for="PackSize" class="form-label">Pack Size</label>
+                <input type="number" class="form-control" id="PackSize" required>
+              </div>
+              <div class="mb-3">
+                <label for="Unit" class="form-label">Unit</label>
+                <input type="text" class="form-control" id="Unit" required>
+              </div>
+              <div class="mb-3">
+                <label for="Quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="Quantity" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="addBtn" class="btn btn-primary">Add Row</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Table and Buttons -->
+    <div class="table-wrapper">
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">✔</th>
+            <th scope="col">Chemical Name</th>
+            <th scope="col">Vendor</th>
+            <th scope="col">Density (g/m³)
+              <span class="sort-icons">
+                <button class="btn density-asc">&#9650;</button>
+                <button class="btn density-desc">&#9660;</button>
+              </span>
+            </th>
+            <th scope="col">Viscosity (m²/s)
+              <span class="sort-icons">
+                <button class="btn viscosity-asc">&#9650;</button>
+                <button class="btn viscosity-desc">&#9660;</button>
+              </span>
+            </th>
+            <th scope="col">Packaging</th>
+            <th scope="col">Pack Size
+              <span class="sort-icons">
+                <button class="btn packsize-asc">&#9650;</button>
+                <button class="btn packsize-desc">&#9660;</button>
+              </span>
+            </th>
+            <th scope="col">Unit</th>
+            <th scope="col">Quantity
+              <span class="sort-icons">
+                <button class="btn quantity-asc">&#9650;</button>
+                <button class="btn quantity-desc">&#9660;</button>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="trParent"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script defer src="./js/bootstrap.bundle.js"></script>
+  <script defer src="./js/script.js"></script>
+</body>
+</html>
